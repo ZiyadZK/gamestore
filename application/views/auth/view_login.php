@@ -35,7 +35,15 @@
         <h1 class="font-quicksand font-bold text-white text-5xl">
             <span class="underline decoration-orange-600 underline-offset-6">Sign in</span> with your Account<span class="text-orange-600">.</span>
         </h1>
-        <form action="" class="mt-8 font-quicksand text-white w-full space-y-4">
+        <?php if($this->session->flashdata('login') == 'wrong_credentials') {?>
+            <div class="flex items-center gap-5 px-2 py-4 rounded border border-red-600 backdrop-blur bg-red-600/10 mt-3 w-fit">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5 text-red-600" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24V264c0 13.3-10.7 24-24 24s-24-10.7-24-24V152c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/></svg>
+                <p class="font-quicksand text-red-600 font-bold">
+                    Login Failed! <span class="font-medium text-red-500">Please, Try again using your correct account!</span>
+                </p>
+            </div>
+        <?php } ?>
+        <form action="<?= base_url('/auth/login/verify') ?>" class="mt-8 font-quicksand text-white w-full space-y-4" method="post">
             <div class="">
                 <p class="font-extralight">
                     Username or Email
@@ -46,7 +54,7 @@
                 <p class="font-extralight">
                     Password
                 </p>
-                <input type="password" name="username_email" class="w-1/4 h-10 px-2 rounded outline-none bg-white/10 backdrop-blur border border-zinc-500/0 hover:border-zinc-500 transition-all duration-300 focus:border-zinc-500" autocomplete="off" required>
+                <input type="password" name="password" class="w-1/4 h-10 px-2 rounded outline-none bg-white/10 backdrop-blur border border-zinc-500/0 hover:border-zinc-500 transition-all duration-300 focus:border-zinc-500" autocomplete="off" required>
             </div>
             <div class="flex items-center gap-5">
                 <input type="checkbox" name="logged" id="" class="accent-orange-500 bg-transparent outline-none cursor-pointer">
@@ -55,11 +63,22 @@
                 </p>
             </div>
             <div class="flex items-center justify-center w-1/4">
-                <button type="button" class="rounded bg-orange-600 text-zinc-900 font-bold px-3 py-2 hover:bg-orange-700 focus:bg-orange-800">
+                <button type="submit" class="rounded bg-orange-600 text-zinc-900 font-bold px-3 py-2 hover:bg-orange-700 focus:bg-orange-800">
                     Sign in
                 </button>
             </div>
         </form>
+        <div class="flex justify-between items-center w-1/4 text-white font-quicksand mt-3">
+            <a href="" class="text-sm hover:text-orange-600 underline">
+                Forgot password?
+            </a>
+            <a href="<?= base_url('/auth/register')?>" class="text-sm hover:text-orange-600 underline">
+                Create new account
+            </a>
+        </div>
+        <p class="text-sm font-quicksand italic text-white font-light mt-5 ">
+            By <span class="text-orange-600">Signing in</span>, you agree terms and rules.
+        </p>
     </div>
 </body>
 </html>

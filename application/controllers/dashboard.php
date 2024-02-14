@@ -8,6 +8,6 @@ class dashboard extends CI_Controller {
             return redirect(base_url('/auth/login'));
        }
 
-       echo "Dashboard Page";
+       $this->load->view('dashboard');
     }
 }
