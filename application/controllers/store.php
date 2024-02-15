@@ -6,7 +6,7 @@ class store extends CI_Controller {
         echo "this is Main Store's Page";
     }
 
-    public function free() {
-        echo "This is free store's page";
+    public function bestrating() {
+        
     }
 }
