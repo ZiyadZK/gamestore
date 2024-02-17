@@ -23,7 +23,7 @@
                     <input type="text" class="outline-none rounded py-1 px-2 bg-zinc-900/40 border border-zinc-500 text-sm w-full" placeholder="Search your game here..">
                 </form>
                 <h1 class="font-bold font-nunito text-2xl">
-                    Best Rating Games
+                    Best Seller Games
                 </h1>
                 <div class="grid grid-cols-4 gap-5">
                 <?php foreach($game as $g) { ?>

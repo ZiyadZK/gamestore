@@ -18,6 +18,21 @@ class model_game extends CI_Model {
         $query = $this->db->get();
         return $query->result_array();
     }
+
+    public function getBestRating() {
+        $this->db->from('game');
+        $this->db->order_by('rating', 'desc');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
+    public function getBestSeller() {
+        $this->db->from('game');
+        $this->db->where('best_seller', 'true');
+        $this->db->order_by('rating', 'desc');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
 }
 
 ?>
